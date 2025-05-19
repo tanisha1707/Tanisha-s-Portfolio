@@ -17,7 +17,7 @@ export default function ProjectsSection() {
       description:
         "Developed an official website for the GDG Club of the college, enhancing community engagement. Designed a modern UI ensuring seamless navigation and responsiveness.",
       technologies: ["HTML", "CSS", "JavaScript", "React.js", "TailwindCSS", "Firebase"],
-      demoUrl: "#https://gdgipsa.vercel.app/blog",
+      demoUrl: "https://gdgipsa.vercel.app/",
       //githubUrl: "#https://github.com/aniketsingh1023/GDG-OC-WEBSITE",
     },
     {
@@ -33,7 +33,7 @@ export default function ProjectsSection() {
       description:
         "Created an event website with speaker and agenda listing for a CEO summit at college with footfall of 500+ students.",
       technologies: ["React", "TailwindCSS", "Node.js", "Express", "MongoDB"],
-      demoUrl: "#https://bad-talks.iesipsacademystudentclubs.org/#home",
+      demoUrl: "https://bad-talks.iesipsacademystudentclubs.org/#home",
       //githubUrl: "#",
     },
   ]

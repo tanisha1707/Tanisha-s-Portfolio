@@ -5,6 +5,7 @@ import InternshipSection from "@/components/internship-section"
 import ExperienceSection from "@/components/experience-section"
 import ProjectsSection from "@/components/projects-section"
 import ContactSection from "@/components/contact-section"
+import SkillsSection from "@/components/SkillsSection"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -21,32 +22,7 @@ export default function Home() {
         </section>
 
         <section id="skills" className="py-20">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-            Skills
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillCategory title="Programming Languages" skills={["C", "Java", "JavaScript"]} />
-            <SkillCategory
-              title="Web Technologies"
-              skills={[
-                "HTML",
-                "CSS",
-                "React.js",
-                "Node.js",
-                "Next.js",
-                "Tailwind CSS",
-                "Bootstrap",
-                "Chart.js",
-                "Shad/cn",
-                "Appwrite",
-              ]}
-            />
-            <SkillCategory title="Database & Cloud" skills={["SQL", "MongoDB", "AWS"]} />
-            <SkillCategory
-              title="Core Skills"
-              skills={["UI/UX Design", "Computer Networks", "Operating Systems", "Data Structures", "Compiler Design"]}
-            />
-          </div>
+         <SkillsSection/>
         </section>
 
         <section id="internship" className="py-20">

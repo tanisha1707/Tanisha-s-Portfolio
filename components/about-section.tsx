@@ -10,53 +10,57 @@ export default function AboutSection() {
   })
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.3,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
+      y: 0,
+      transition: { duration: 0.5 },
     },
   }
 
   return (
-    <motion.div
+    <motion.section
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="max-w-4xl mx-auto"
+      className="max-w-5xl px-6 mx-auto py-20"
     >
       <motion.h2
         variants={itemVariants}
-        className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+        className="text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
       >
         About Me
       </motion.h2>
 
       <motion.div
         variants={itemVariants}
-        className="bg-card p-8 rounded-xl shadow-lg border border-border hover:border-primary/50 transition-all duration-300"
+        className="bg-white dark:bg-zinc-900 p-10 rounded-3xl shadow-xl border border-zinc-200 dark:border-zinc-800 transition-transform duration-500 hover:scale-[1.02]"
       >
-        <h3 className="text-2xl font-semibold mb-4">Tanisha Dhakad</h3>
+        <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Tanisha Dhakad</h3>
 
-        <p className="text-foreground/80 mb-6">
-          I am a passionate Full Stack Web Developer with expertise in MERN stack, DSA, event management, and team
-          leadership. I enjoy building modern web applications and solving complex problems with elegant solutions.
+        <p className="text-base text-zinc-700 dark:text-zinc-300 mb-10 leading-relaxed">
+          I’m a Full Stack Web Developer (MERN), strong in DSA and passionate about leadership and event management.
+          I love solving real-world problems and crafting modern web applications that are fast, responsive, and impactful.
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-10 relative">
+          <div className="absolute left-3 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full opacity-60" />
+
           <EducationItem
             degree="Bachelor of Technology"
             institution="IES IPS Academy"
@@ -70,11 +74,11 @@ export default function AboutSection() {
             institution="Gyan Ganga Public School"
             duration="Completed May 2022"
             location="Bhatpachlana, India"
-            description="Developed a self-disciplined study approach and time management skills."
+            description="Built strong time management and self-discipline through independent study."
           />
 
           <EducationItem
-            degree="Secondary (X), CBSE Board"
+            degree="Secondary (X)"
             institution="Maruti Academy Satrunda"
             duration="Completed May 2020"
             location="Ratlam, India"
@@ -82,7 +86,7 @@ export default function AboutSection() {
           />
         </div>
       </motion.div>
-    </motion.div>
+    </motion.section>
   )
 }
 
@@ -102,15 +106,26 @@ function EducationItem({
   description?: string
 }) {
   return (
-    <div className="border-l-2 border-primary/50 pl-4 py-2">
-      <h4 className="text-lg font-medium">{degree}</h4>
-      <p className="text-foreground/80">{institution}</p>
-      <div className="flex flex-wrap gap-x-4 text-sm text-foreground/60 mt-1">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, x: -20 },
+        visible: {
+          opacity: 1,
+          x: 0,
+          transition: { duration: 0.4 },
+        },
+      }}
+      className="relative pl-8"
+    >
+      <div className="absolute left-[-0.8rem] top-1 w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-md border-2 border-white dark:border-zinc-800" />
+      <h4 className="text-xl font-semibold text-zinc-900 dark:text-white">{degree}</h4>
+      <p className="text-zinc-700 dark:text-zinc-300">{institution}</p>
+      <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 flex flex-wrap gap-4">
         <span>{duration}</span>
         <span>{location}</span>
       </div>
-      {gpa && <p className="text-sm font-medium mt-1">GPA: {gpa}</p>}
-      {description && <p className="text-sm mt-1">{description}</p>}
-    </div>
+      {gpa && <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mt-2">GPA: {gpa}</p>}
+      {description && <p className="text-sm mt-2 text-zinc-600 dark:text-zinc-300">{description}</p>}
+    </motion.div>
   )
 }
